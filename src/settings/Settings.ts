@@ -3,13 +3,13 @@ import { FolderSuggest } from './suggestors/FolderSuggestor'
 import YamlClasses from '../main'
 
 export interface Settings {
-	classes_folder: string;
+	classesFolder: string;
 	mySetting: string;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
 	mySetting: 'default',
-	classes_folder: ''
+	classesFolder: ''
 }
 
 export class SettingTab extends PluginSettingTab {
@@ -30,9 +30,9 @@ export class SettingTab extends PluginSettingTab {
             .addSearch((cb) => {
                 new FolderSuggest(cb.inputEl);
                 cb.setPlaceholder("Example: folder1/folder2")
-                    .setValue(this.plugin.settings.classes_folder)
+                    .setValue(this.plugin.settings.classesFolder)
                     .onChange((new_folder) => {
-                        this.plugin.settings.classes_folder = new_folder;
+                        this.plugin.settings.classesFolder = new_folder;
                         this.plugin.saveSettings();
                     });
                 // @ts-ignore

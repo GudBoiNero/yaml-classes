@@ -16,8 +16,4 @@ export default class YamlParser {
 
         return obj;
     }
-
-    public static async parseFromFile(file: TFile): Promise<YamlObject | undefined> {
-        return this.parseFromString(await app.vault.read(file));
-    }
 }
