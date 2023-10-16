@@ -9,7 +9,7 @@ export interface YamlObject extends Object {
 }
 
 export default class YamlParser {
-    public static async parseFromString(data: string): Promise<YamlObject | undefined> {
+    public static parseFromString(data: string): YamlObject | undefined {
         let obj: YamlObject | undefined;
 
         new Notice(`Parsing:\n${JSON.stringify(parseYaml(data))}`, 0)

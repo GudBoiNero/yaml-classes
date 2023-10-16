@@ -21,7 +21,8 @@ export default class EventHandler {
             // go through all files and refactor their `class` variable if it was the same as the files previous title
             if (classFile.parent?.path == this.settings.classesFolder) {
                 this.plugin.app.vault.getFiles().forEach(async (file: TFile) => {
-                    const yaml = await YamlParser.parseFromString(await this.plugin.app.vault.read(file))
+                    const data = await this.plugin.app.vault.read(file)
+                    const yaml = YamlParser.parseFromString(data)
 
                     // If the file has the `class` property
                     const className = yaml?.strings.filter((pair) => pair.key != 'class')?.at(-1)
